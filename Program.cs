@@ -45,7 +45,7 @@ class Program
             {
                 // Lê o arquivo CSV e importa os dados
                 var contratos = new List<Contrato>();
-                using (var reader = new StreamReader(caminhoArquivo, Encoding.UTF8))
+                using (var reader = new StreamReader(caminhoArquivo, Encoding.GetEncoding("ISO-8859-1")))
                 using (var csv = new CsvReader(reader, new CsvHelper.Configuration.CsvConfiguration(new CultureInfo("pt-BR")) // Definindo pt-BR aqui
                 {
                     Delimiter = ";", // Define o delimitador como ponto e vírgula
@@ -72,11 +72,13 @@ class Program
 
 
 
-                    // adiciona o nome do usuario que importou os dados e os dias em atraso
+                    // adiciona os dados do log da importacao (nome do usuario, data importacao e nome do arquivo import.) e os dias em atraso
                     foreach (var contrato in contratos)
                     {
                         contrato.Usuario = username;
-                        contrato.DiasAtraso = CalcularDiasAtraso(contrato.Vencimento); 
+                        contrato.DiasAtraso = CalcularDiasAtraso(contrato.Vencimento);
+                        contrato.DataImportacao = DateTime.Now;  
+                        contrato.NomeArquivo = Path.GetFileName(caminhoArquivo); 
 
                     }
 

@@ -10,8 +10,11 @@ public class Contrato
     public string Produto { get; set; }       //   produto
     public DateTime Vencimento { get; set; }  // Data de vencimento
     public decimal Valor { get; set; }        // Valor do contrato
-    public string Usuario { get; set; }      // usuario que adicionou os dados 
     public int DiasAtraso { get; set; }       // Da 
+    public DateTime DataImportacao { get; set; } // Data da importação
+    public string Usuario { get; set; }      // usuario que adicionou os dados 
+    public string NomeArquivo { get; set; }    // Nome do arquivo 
+
 
 }
 
