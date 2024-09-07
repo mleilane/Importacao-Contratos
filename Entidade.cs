@@ -4,20 +4,24 @@ using System.Globalization;
 public class Contrato
 {
     public int Id { get; set; }               // Chave primária
-    public string Nome { get; set; }          // Nome do cliente
-    public string CPF { get; set; }            // CPF do cliente
-    public string NumeroContrato { get; set; }   // Número do contrato
-    public string Produto { get; set; }       // Tipo de produto
+    public string Nome { get; set; }          // Nome  
+    public string CPF { get; set; }            // CPF  
+    public string NumeroContrato { get; set; }   //   contrato
+    public string Produto { get; set; }       //   produto
     public DateTime Vencimento { get; set; }  // Data de vencimento
     public decimal Valor { get; set; }        // Valor do contrato
+    public string Usuario { get; set; }      // usuario que adicionou os dados 
+    public int DiasAtraso { get; set; }       // Da 
+
 }
 
 public class Importacao
 {
     public int Id { get; set; }                   // Chave primária
     public DateTime DataImportacao { get; set; } // Data da importação
-    public string NomeArquivo { get; set; }    // Nome do arquivo importado
-   
+    public string NomeArquivo { get; set; }    // Nome do arquivo 
+    public string Usuario { get; set; }       // uusuario que adicionou os dados 
+
 }
 
 // Mapeamento personalizado para o CsvHelper
