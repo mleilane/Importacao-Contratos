@@ -7,8 +7,21 @@ class Program
 {
     static void Main(string[] args)
     {
+        var autServico = new AutenticacaoServico();
 
-     
+        Console.WriteLine("Digite seu nome de usuário:");
+        string username = Console.ReadLine();
+
+        Console.WriteLine("Digite sua senha:");
+        string password = Console.ReadLine();
+
+        // Verifica a autenticação
+        if (!autServico.Authenticate(username, password))
+        {
+            Console.WriteLine("Credenciais inválidas.");
+            return;
+        }
+
 
         // Solicita ao usuário o caminho do arquivo CSV
         Console.WriteLine("Digite o caminho do arquivo CSV:");
